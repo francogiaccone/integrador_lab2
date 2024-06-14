@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    idProfesional: 6, idPaciente, diagnostico, fechaPrescripcion, vigencia,
+                    idProfesional: 1, idPaciente, diagnostico, fechaPrescripcion, vigencia,
                     medicamentos, idsPrestaciones
                 })
             });
