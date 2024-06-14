@@ -1,0 +1,44 @@
+extends ../layouts/layout
+
+block content
+    form#form(action="/paciente/editar/:id" method="POST")
+        input(type="hidden" name="_method" value="PUT")
+        .form-group
+            label(for="nombre") Nombre
+            input.nombre(type="text" value=paciente.persona.nombre name="nombre" required)
+
+        .form-group
+            label(for="apellido") Apellido
+            input.apellido(type="text" value=paciente.persona.apellido name="apellido" required)
+
+        .form-group
+            label(for="documento") Documento
+            input.documento(type="text" value=paciente.persona.documento name="documento" required)
+
+        .form-group
+            label(for="fechaNacimiento") Fecha de Nacimiento
+            input.fechaNacimiento(type="date" value=paciente.persona.fechaNacimiento name="fechaNacimiento" required)
+
+        .form-group
+            label(for="domicilio") Domicilio
+            input.domicilio(type="text" value=paciente.persona.domicilio name="domicilio" required)
+
+        .form-group
+            label(for="sexo") Sexo
+            select.sexo(name="sexo" required)
+                option(value="" disabled selected) Seleccione el sexo
+                option(value="M") Masculino
+                option(value="F") Femenino
+
+        .form-group
+            label(for="obraSocial") Plan Obra Social
+            select.plan(name="plan" required)
+                option(value="" disabled selected) Seleccione el plan
+                each plan in planesObraSocial
+                    option(value=plan.id)= plan.nombre
+
+        .div-botones
+            button.crear(type="submit") Actualizar Prestación
+            button.resetear(type="reset") Limpiar campos
+
+    script(src="/script/actualizarPaciente.js")

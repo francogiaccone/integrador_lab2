@@ -1,0 +1,32 @@
+extends ../layouts/layout
+
+block content
+    .contenedor-utilidad
+        a.btn-crear(href="/prestacion/crear") + Crear prestación
+        input(type="text" class="buscador" placeholder="Buscar por nombre")
+
+    table.tabla
+      thead
+        tr
+          th(data-column="id" data-type="number") ID
+          th(data-column="nombre" data-type="text") Nombre
+          th(data-column="lado" data-type="text") Lado
+          th(data-column="indicacion" data-type="text") Indicacion
+          th(data-column="justificacion" data-type="text") Justificacion
+          th Acciones
+      tbody
+        each prestacion in prestaciones
+            tr
+                td= prestacion.id
+                td= prestacion.nombre
+                td= prestacion.lado
+                td= prestacion.indicacion
+                td= prestacion.justificacion
+                td
+                    a(href=`/prestacion/editar/${prestacion.id}`)
+                        span.material-symbols-outlined.editar edit
+                    a(href="#")
+                        span.material-symbols-outlined.eliminar delete
+    
+    script(src="/script/buscador.js")
+    script(src="/script/eliminarPrestacion.js")

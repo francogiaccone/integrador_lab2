@@ -1,0 +1,26 @@
+extends ../layouts/layout
+
+block content
+    form#prestacion-form(action="/prestacion/editar/:id" method="POST")
+        input(type="hidden" name="_method" value="PUT")
+        .form-group
+            label(for="nombre") Nombre
+            input.nombre(type="text" value=prestacion.nombre name="nombre" required)
+
+        .form-group
+            label(for="lado") Lado
+            input.lado(type="text" value=prestacion.lado name="lado" required)
+
+        .form-group
+            label(for="indicacion") Indicación
+            input.indicacion(type="text" value=prestacion.indicacion name="indicacion" required)
+
+        .form-group
+            label(for="justificacion") Justificación
+            textarea.justificacion(name="justificacion" required)= prestacion.justificacion
+
+        .div-botones
+            button.crear(type="submit") Actualizar Prestación
+            button.resetear(type="reset") Restaurar valores
+
+    script(src="/script/actualizarPrestacion.js")

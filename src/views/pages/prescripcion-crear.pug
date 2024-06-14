@@ -1,0 +1,50 @@
+extends ../layouts/layout
+
+block content
+    form#form(action="/prescripcion/crear" method="POST")
+        
+        .form-group
+            label(for="paciente") Paciente
+            select.paciente(name="paciente" required)
+                option(value="" disabled selected) Seleccione el paciente
+                each paciente in pacientes
+                    option(value=paciente.id)= "(id: " + paciente.id + ") " + paciente.persona.nombre + " " + paciente.persona.apellido
+
+        .form-group
+            label(for="diagnostico") Diagnóstico
+            textarea.diagnostico(name="diagnostico" required)
+
+        .form-group
+            label(for="vigencia") Vigencia (días)
+            select.sexo(name="vigencia" required)
+                option(value="" disabled selected) Seleccione los días
+                option(value="30") 30
+                option(value="60") 60
+
+        button(type="button" id="agregarMedicamentoBtn") Agregar Medicamento
+        .form-group#medicamentos-container(style="display: none;")
+            .medicamentos
+                .medicamento(style="display: none;")
+                    select(name="medicamento")
+                        option(value="" disabled selected) Seleccione el medicamento
+                        each medicamento in medicamentos 
+                            option(value=medicamento.id)= "(id: " + medicamento.id + ") " + medicamento.nombreGenerico
+                    input(type="text" name="frecuencia" placeholder="Frecuencia")
+                    input(type="text" name="duracion" placeholder="Duración")
+                    button.eliminarMedicamento(type="button") Eliminar
+
+        label(for="prestacion") Prestaciones
+        .prestaciones-disponibles
+            each prestacion in prestaciones
+                .prestacion-disponible(data-prestaciones-id=prestacion.id)= prestacion.nombre
+        
+        .prestaciones-seleccionadas
+
+        .div-botones
+            button.crear(type="submit") Crear Prescripción
+            button.resetear(type="reset") Limpiar campos
+
+
+    script(src="/script/agregarMedicamentos.js")
+    script(src="/script/agregarPrestaciones.js")
+    script(src="/script/crearPrescripciones.js")

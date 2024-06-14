@@ -1,0 +1,134 @@
+#form {
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    font-weight: bold;
+}
+
+.nombre, .apellido, .documento, .fechaNacimiento, .domicilio, .sexo, .plan, .profesion, .idREFEPS, #especialidades-input, .profesional, .paciente,
+select {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.div-botones {
+    margin-top: 40px;
+}
+
+.div-botones button {
+    margin-right: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.div-botones button.crear {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+}
+
+.div-botones button.resetear {
+    background-color: #f44336;
+    color: white;
+    border: none;
+}
+
+.div-botones button:hover {
+    opacity: 0.8;
+}
+
+/* profesional */
+.especialidades-disponibles, .prestaciones-disponibles {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.especialidad-disponible, .prestacion-disponible {
+    cursor: pointer;
+    padding: 5px 10px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    margin: 5px;
+    display: inline-block;
+}
+
+.especialidades-seleccionadas, .prestaciones-seleccionadas {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.especialidades-seleccionadas .especialidad-disponible, .prestaciones-seleccionadas .prestacion-disponible {
+    background-color: #e0e0e0;
+    border-color: #999;
+}
+
+.especialidades-seleccionadas .especialidad-disponible button, .prestaciones-seleccionadas .prestacion-disponible button {
+    margin-left: 10px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+/* prescripcion */
+#agregarMedicamentoBtn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 8px 16px; 
+    margin-bottom: 10px; 
+    cursor: pointer; 
+}
+
+#agregarMedicamentoBtn:hover {
+    background-color: #0056b3; 
+}
+
+#medicamentos-container {
+    margin-top: 10px;
+}
+
+
+.medicamento {
+    margin-bottom: 10px; 
+    padding: 10px; 
+    border: 1px solid #ccc;
+    border-radius: 5px; 
+}
+
+.medicamento input[type="text"] {
+    width: 100%; 
+    padding: 8px; 
+    margin-bottom: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px; 
+}
+
+.medicamento button.eliminarMedicamento {
+    background-color: #dc3545; 
+    color: #fff; 
+    border: none; 
+    padding: 6px 12px; 
+    cursor: pointer; 
+}
+
+.medicamento button.eliminarMedicamento:hover {
+    background-color: #c82333; 
+}

@@ -1,0 +1,42 @@
+extends ../layouts/layout
+
+block content
+    .contenedor-utilidad
+        a.btn-crear(href="/prescripcion/crear") + Crear prescripción
+        input(type="text" class="buscador" placeholder="Buscar por nombre")
+
+    table.tabla
+      thead
+        tr
+          th(data-column="id" data-type="number") ID
+          th(data-column="idProfesional" data-type="text") Profesional
+          th(data-column="idPaciente" data-type="text") Paciente
+          th(data-column="diagnostico" data-type="text") Diagnóstico
+          th(data-column="fechaPrescripcion" data-type="text") Fecha
+          th(data-column="vigencia" data-type="text") Fecha Vigencia
+          th(data-column="idsMedicamento" data-type="text") Medicamentos
+          th(data-column="idsPrestaciones" data-type="text") Prestaciones
+          th Acciones
+      tbody
+        each prescripcion in prescripciones
+            tr
+                td= prescripcion.id
+                td= prescripcion.profesional.persona.nombre
+                td= prescripcion.paciente.persona.nombre
+                td= prescripcion.diagnostico
+                td= prescripcion.fechaPrescripcion
+                td= prescripcion.vigencia
+                td
+                    each medicamento in prescripcion.medicamentos
+                        | #{medicamento.nombreGenerico} <br>
+                td
+                    each prestacion in prescripcion.prestacions
+                        | #{prestacion.nombre} <br>
+                td  
+                    a(href=`/prescripcion/ver/${prescripcion.id}`)
+                        span.material-symbols-outlined.ver visibility
+                    a(href="#")
+                        span.material-symbols-outlined.eliminar delete
+    
+    script(src="/script/buscador.js")
+    script(src="/script/eliminarPrescripcion.js")

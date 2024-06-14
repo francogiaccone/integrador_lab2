@@ -1,0 +1,75 @@
+.contenedor-utilidad {
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn-crear {
+    background-color: #6bad00;
+    border: none;
+    padding: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    color: white;
+    transition: all 150ms;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.btn-crear:hover {
+    transform: scale(1.05);
+}
+
+.buscador {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.buscador:focus {
+    border-color: #007bff;
+}
+
+table.tabla {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 18px;
+    text-align: left;
+    border: 3px solid #007598;
+}
+
+table.tabla thead tr {
+    background-color: #007598;
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+}
+
+table.tabla th,
+table.tabla td {
+    padding: 12px 15px;
+}
+
+table.tabla tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+table.tabla tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+table.tabla tbody tr a {
+    margin: 0 20px 0 0;
+}
+
+table.tabla tbody tr .editar {
+    color: #6bad00;
+}
+
+table.tabla tbody tr .eliminar {
+    color: red;
+}

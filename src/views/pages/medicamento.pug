@@ -1,0 +1,38 @@
+extends ../layouts/layout
+
+block content
+    .contenedor-utilidad
+        .div-silueta
+        input(type="text" class="buscador" placeholder="Buscar por nombre")
+
+    table.tabla
+      thead
+        tr
+          th(data-column="id" data-type="number") ID
+          th(data-column="nombreGenerico" data-type="text") Nombre Genérico
+          th(data-column="nombreComercial" data-type="text") Nombre Comercial
+          th(data-column="idFamilia" data-type="text") Familia
+          th(data-column="idCategoria" data-type="text") Categoría
+          th(data-column="idsFormasFarmaceuticas" data-type="text") Formas Farmaceuticas
+          th(data-column="idsMonodrogas" data-type="text") Monodrogas
+          th Acciones
+      tbody
+        each medicamento in medicamentos
+            tr
+                td= medicamento.id
+                td= medicamento.nombreGenerico
+                td= medicamento.nombreComercial
+                td= medicamento.familia.descripcion
+                td= medicamento.categoria.descripcion
+                td
+                    each formaFarmaceutica in medicamento.formasFarmaceuticas
+                        | #{formaFarmaceutica.descripcion} <br>
+                td
+                    each monodroga in medicamento.medicamentoMonodrogas
+                        | #{monodroga.monodroga.descripcion} #{monodroga.concentracion}#{monodroga.unidadMedida.abreviatura} <br>
+                td
+                    a(href="#")
+                        span.material-symbols-outlined.eliminar delete
+    
+    script(src="/script/buscador.js")
+    script(src="/script/eliminarMedicamento.js")

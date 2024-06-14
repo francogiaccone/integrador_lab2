@@ -1,0 +1,44 @@
+extends ../layouts/layout
+
+block content
+    .contenedor-utilidad
+        a.btn-crear(href="/profesional/crear") + Crear profesional
+        input(type="text" class="buscador" placeholder="Buscar por nombre")
+
+    table.tabla
+      thead
+        tr
+          th(data-column="id" data-type="number") ID
+          th(data-column="nombre" data-type="text") Nombre
+          th(data-column="apellido" data-type="text") Apellido
+          th(data-column="documento" data-type="text") Documento
+          th(data-column="fechaNacimiento" data-type="text") Fecha Nacimiento
+          th(data-column="domicilio" data-type="text") Domicilio
+          th(data-column="sexo" data-type="text") Sexo
+          th(data-column="profesion" data-type="text") Profesión
+          th(data-column="IDREFEPS" data-type="number") ID REFEPS
+          th(data-column="especialidades" data-type="text") Especialidades
+          th Acciones
+      tbody
+        each profesional in profesionales
+            tr
+                td= profesional.id
+                td= profesional.persona.nombre
+                td= profesional.persona.apellido
+                td= profesional.persona.fechaNacimiento
+                td= profesional.persona.domicilio
+                td= profesional.persona.domicilio
+                td= profesional.persona.sexo
+                td= profesional.profesion
+                td= profesional.idREFEPS
+                td
+                    each especialidad in profesional.especialidads
+                        | #{especialidad.descripcion} <br>
+                td
+                    a(href=`/profesional/editar/${profesional.id}`)
+                        span.material-symbols-outlined.editar edit
+                    a(href="#")
+                        span.material-symbols-outlined.eliminar delete
+    
+    script(src="/script/buscador.js")
+    script(src="/script/eliminarProfesional.js")

@@ -1,0 +1,53 @@
+extends ../layouts/layout
+
+block content
+    form#form(action="/profesional/editar/:id" method="POST")
+        input(type="hidden" name="_method" value="PUT")
+        .form-group
+            label(for="nombre") Nombre
+            input.nombre(type="text" value=profesional.persona.nombre name="nombre" required)
+
+        .form-group
+            label(for="apellido") Apellido
+            input.apellido(type="text" value=profesional.persona.apellido name="apellido" required)
+
+        .form-group
+            label(for="documento") Documento
+            input.documento(type="text" value=profesional.persona.documento name="documento" required)
+
+        .form-group
+            label(for="fechaNacimiento") Fecha de Nacimiento
+            input.fechaNacimiento(type="date" value=profesional.persona.fechaNacimiento name="fechaNacimiento" required)
+
+        .form-group
+            label(for="domicilio") Domicilio
+            input.domicilio(type="text" value=profesional.persona.domicilio name="domicilio" required)
+
+        .form-group
+            label(for="sexo") Sexo
+            select.sexo(name="sexo" required)
+                option(value="" disabled selected) Seleccione el sexo
+                option(value="M") Masculino
+                option(value="F") Femenino
+
+        .form-group
+            label(for="profesion") Profesion
+            input.profesion(type="text" value=profesional.profesion name="profesion" required)
+
+        .form-group
+            label(for="idREFEPS") idREFEPS
+            input.idREFEPS(type="number" value=profesional.idREFEPS name="idREFEPS" required)
+
+        label(for="especialidades") Especialidades
+        .especialidades-disponibles
+            each especialidad in especialidades
+                .especialidad-disponible(data-especialidad-id=especialidad.id)= especialidad.descripcion
+        
+        .especialidades-seleccionadas
+
+        .div-botones
+            button.crear(type="submit") Actualizar Profesional
+            button.resetear(type="reset") Limpiar campos
+
+    script(src="/script/actualizarProfesional.js")
+    script(src="/script/agregarEspecialidades.js")

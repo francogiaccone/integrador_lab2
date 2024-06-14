@@ -1,0 +1,163 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  display: grid;
+  grid-template-columns: 85px 1fr;
+  grid-template-rows: 15vh 85vh;
+  grid-template-areas:
+    "aside header"
+    "aside main";
+  background-color: #E4E4E4;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 85px;
+  display: flex;
+  overflow-x: hidden;
+  flex-direction: column;
+  background: #0A2658;
+  padding: 25px 20px;
+  transition: all 0.4s ease;
+  z-index: 2;
+}
+
+.silueta {
+  grid-area: aside;
+}
+
+.sidebar:hover {
+  width: 260px;
+}
+
+.sidebar .sidebar-header {
+  display: flex;
+  align-items: center;
+}
+
+.sidebar .sidebar-header img {
+  width: 42px;
+  border-radius: 50%;
+}
+
+.sidebar .sidebar-header h2 {
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 600;
+  white-space: nowrap;
+  margin-left: 23px;
+}
+
+.sidebar-links h4 {
+  color: #fff;
+  font-weight: 500;
+  white-space: nowrap;
+  margin: 10px 0;
+  position: relative;
+}
+
+.sidebar-links {
+  list-style: none;
+  margin-top: 20px;
+  height: 80%;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+.sidebar-links::-webkit-scrollbar {
+  display: none;
+}
+
+.sidebar-links li a,
+.exit-link a {
+  display: flex;
+  align-items: center;
+  gap: 0 20px;
+  color: #fff;
+  font-weight: 500;
+  white-space: nowrap;
+  padding: 15px 10px;
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+
+.sidebar-links li a:hover,
+.exit-link a:hover {
+  color: #161a2d;
+  background: #fff;
+  border-radius: 4px;
+}
+
+.exit-link {
+  margin-top: auto;
+  padding: 12px 10px;
+  margin-left: -10px;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+.header {
+  grid-area: header;
+  margin: 0.7%;
+  border-radius: 15px;
+  background-color: white;
+  box-shadow: 0px 3px 2px 2px #cccccc;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2%;
+}
+
+.info.info-usuario {
+  transition: all 300ms;
+}
+
+.info-usuario a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: black;
+}
+
+.info-usuario p {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.info-usuario a:hover {
+  background-color: #ececec;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.info-usuario:hover img {
+  color: white;
+}
+
+.main {
+  grid-area: main;
+  margin: 0 0.7% 0.7%;
+  border-radius: 15px;
+  background-color: white;
+  box-shadow: 0px 3px 2px 2px #cccccc;
+  padding: 2%;
+  overflow: auto;
+  box-sizing: border-box;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.main::-webkit-scrollbar {
+  display: none;
+}

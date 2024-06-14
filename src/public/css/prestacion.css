@@ -1,0 +1,70 @@
+/* crear prestacion */
+
+form {
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.nombre, .lado, .justificacion, .indicacion,
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+textarea {
+    height: 100px;
+    resize: none;
+}
+
+.div-botones {
+    display: flex;
+    justify-content: space-between;
+}
+
+.crear, .resetear {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.resetear {
+    background-color: #007bff;
+}
+
+.crear {
+    background-color: #6bad00;
+}
+
+.crear:hover {
+    background-color: #4e7e00;
+}
+
+.mensaje-exito {
+    color: green;
+    padding: 10px;
+    text-align: center;
+    font-size: 20px;
+}

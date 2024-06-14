@@ -1,0 +1,25 @@
+extends ../layouts/layout
+
+block content
+    form#prestacion-form(action="/prestacion/crear" method="POST")
+        .form-group
+            label(for="nombre") Nombre
+            input.nombre(type="text" name="nombre" required)
+
+        .form-group
+            label(for="lado") Lado
+            input.lado(type="text" name="lado" required)
+
+        .form-group
+            label(for="indicacion") Indicación
+            input.indicacion(type="text" name="indicacion" required)
+
+        .form-group
+            label(for="justificacion") Justificación
+            textarea.justificacion(name="justificacion" required)
+
+        .div-botones
+            button.crear(type="submit") Crear Prestación
+            button.resetear(type="reset") Limpiar campos
+
+    script(src="/script/crearPrestacion.js")

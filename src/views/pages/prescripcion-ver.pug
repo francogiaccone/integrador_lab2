@@ -1,0 +1,79 @@
+doctype html
+html
+  head
+    title Receta Electrónica
+    style.
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 40px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        background-color: #f9f9f9;
+      }
+      h2 {
+        margin-top: 0;
+      }
+      .container {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+      .container > div {
+        width: calc(50% - 5px); /* Restamos 5px para evitar que haya desbordamiento */
+        box-sizing: border-box;
+        margin-bottom: 10px;
+      }
+      .btn-print {
+        display: block;
+        width: 100%;
+        text-align: center;
+        margin-top: 20px;
+      }
+      .container .right-align {
+        text-align: right;
+      }
+
+  body
+    h2 Receta Electrónica
+
+    .container
+      div
+        h3 Datos del Profesional
+        p Nombre: #{prescripcion.profesional.persona.nombre} #{prescripcion.profesional.persona.apellido}
+        p Documento: #{prescripcion.profesional.persona.documento}
+        p Profesión: #{prescripcion.profesional.profesion}
+        p Domicilio: #{prescripcion.profesional.persona.domicilio}
+        p Matrícula: #{prescripcion.profesional.idREFEPS}
+
+      .right-align
+        h3 Datos del Paciente
+        p Nombre: #{prescripcion.paciente.persona.nombre} #{prescripcion.paciente.persona.apellido}
+        p Documento: #{prescripcion.paciente.persona.documento}
+        p Fecha de Nacimiento: #{prescripcion.paciente.persona.fechaNacimiento}
+        p Sexo: #{prescripcion.paciente.persona.sexo}
+
+    h3 Datos de la Prescripción
+    p Diagnóstico: #{prescripcion.diagnostico}
+    p Fecha de la Prescripción: #{prescripcion.fechaPrescripcion}
+    p Vigencia: #{prescripcion.vigencia}
+
+    h3 Datos de los medicamentos:
+    - if (prescripcion.medicamentos.length > 0)
+      each medicamento in prescripcion.medicamentos
+        p #{medicamento.nombreGenerico} x #{medicamento.prescripcion_medicamento.frecuencia} x #{medicamento.prescripcion_medicamento.duracion}
+    - else
+      p No hay medicamentos
+
+
+    h3 Datos de las prestaciones:
+    - if (prescripcion.prestacions.length > 0)
+      each prestacion in prescripcion.prestacions
+        p #{prestacion.nombre}, del lado #{prestacion.lado}
+    - else
+      p No hay prestaciones
+    
+    
+    // Botón para imprimir
+    button.btn-print(onclick="window.print()") Imprimir Receta
