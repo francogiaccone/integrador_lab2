@@ -25,4 +25,13 @@ app.use('/paciente', pacienteRoutes);
 app.use('/medicamento', medicamentoRoutes);
 app.use('/prescripcion', prescripcionRoutes);
 
+app.get('/', async (req, res) => {
+    try {
+        res.render('layouts/layout');
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error al obtener la pagina principal');
+    }
+});
+
 app.listen(3000, () => console.log('Servidor iniciado en puerto 3000'));
